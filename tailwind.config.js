@@ -25,6 +25,7 @@ module.exports = {
       "Alabaster": "hsl(231, 100%, 99%)",
       "White": "hsl(0, 0%, 100%)",
       "black": "hsl(360, 100, 0)",
+      "gray": "hsl(0, 0%, 50%)",
     }
   },
   plugins: [],
