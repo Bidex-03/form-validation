@@ -5,9 +5,9 @@ import Card from "../UI/Card";
 
 const Form = () => {
   return (
-    <Card className="w-[30%] m-auto mt-36 p-4">
+    <Card className="w-[80%] md:w-[50%] lg:w-[30%] m-auto mt-36 p-4">
       <form className="flex flex-col">
-        <h1 className="mb-4 text-center text-Mangolia text-xl font-semibold">
+        <h1 className="mb-4 text-center text-Mangolia text-sm md:text-xl lg:text-xl font-semibold">
           SIGN IN TO YOUR ACCOUNT
         </h1>
 
