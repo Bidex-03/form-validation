@@ -13,7 +13,7 @@ const Form = () => {
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetNameInput,
-  } = useInput((value) => value.trim !== "");
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: enteredEmail,
@@ -42,7 +42,9 @@ const Form = () => {
 
     resetNameInput();
     resetEmailInput();
-  }
+  };
+
+  // const nameInputClasses = nameInputHasError ? "invalid" : "bg-black";
 
   return (
     <Card className="w-[80%] md:w-[50%] lg:w-[30%] m-auto mt-24 p-4">
@@ -51,7 +53,7 @@ const Form = () => {
           SIGN IN TO YOUR ACCOUNT
         </h1>
 
-        <div className={"flex flex-col"}>
+        <div className="flex flex-col">
           <label htmlFor="name" className="text-Marine-blue font-bold">
             Name
           </label>
@@ -81,8 +83,10 @@ const Form = () => {
             onBlur={emailBlurHandler}
             value={enteredEmail}
           />
-          {nameInputHasError && (
-            <p className="text-Strawberry-red">Please provide a valid email address.</p>
+          {emailInputHasError && (
+            <p className="text-Strawberry-red">
+              Please provide a valid email address.
+            </p>
           )}
           {/* <p className="text-Strawberry-red">Please provide a valid email address.</p> */}
         </div>
@@ -92,11 +96,11 @@ const Form = () => {
           <label className="text-gray">Keep me signed in</label>
         </div>
 
-        <Button disabled={!formIsValid} onClick={formSubmissionHandler}>SIGN IN</Button>
+        {/* <Button disabled={!formIsValid} onClick={formSubmissionHandler}>SIGN IN</Button> */}
 
-        {/* <div className="bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer">
+        <div className="bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer">
           <button disabled={!formIsValid}>SIGN IN</button>
-        </div> */}
+        </div>
 
         <a href="#" className="flex text-center mx-auto my-2">
           Forgot your password?
