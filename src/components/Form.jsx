@@ -1,6 +1,5 @@
 import React from "react";
 
-import classes from "../CSS/error.module.css";
 import useInput from "../hooks/use-input";
 import Button from "../UI/button";
 import Card from "../UI/Card";
@@ -68,8 +67,7 @@ const Form = () => {
           {nameInputHasError && (
             <p className="text-Strawberry-red">Name must not be empty</p>
           )}
-          {/* <p className="text-Strawberry-red">Name must not be empty</p> */}
-        </div>
+          </div>
 
         <div className="flex flex-col">
           <label htmlFor="email" className="text-Marine-blue font-bold">
@@ -88,8 +86,7 @@ const Form = () => {
               Please provide a valid email address.
             </p>
           )}
-          {/* <p className="text-Strawberry-red">Please provide a valid email address.</p> */}
-        </div>
+          </div>
 
         <div className="my-6">
           <input type="checkbox" className="mr-4" />
@@ -98,8 +95,8 @@ const Form = () => {
 
         {/* <Button disabled={!formIsValid} onClick={formSubmissionHandler}>SIGN IN</Button> */}
 
-        <div className="bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer">
-          <button disabled={!formIsValid}>SIGN IN</button>
+        <div>
+          <button disabled={!formIsValid} className="w-[100%] bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer">SIGN IN</button>
         </div>
 
         <a href="#" className="flex text-center mx-auto my-2">
