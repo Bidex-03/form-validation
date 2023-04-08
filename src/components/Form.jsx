@@ -43,7 +43,13 @@ const Form = () => {
     resetEmailInput();
   };
 
-  // const nameInputClasses = nameInputHasError ? "invalid" : "bg-black";
+  const nameInputClasses = nameInputHasError
+    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+    : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
+
+    const emailInputClasses = emailInputHasError
+    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+    : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
 
   return (
     <Card className="w-[80%] md:w-[50%] lg:w-[30%] m-auto mt-24 p-4">
@@ -57,7 +63,7 @@ const Form = () => {
             Name
           </label>
           <input
-            className="text-Marine-blue font-semibold mt-2 mb-4 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+            className={nameInputClasses}
             type="text"
             id="name"
             onChange={nameChangedHandler}
@@ -67,14 +73,14 @@ const Form = () => {
           {nameInputHasError && (
             <p className="text-Strawberry-red">Name must not be empty</p>
           )}
-          </div>
+        </div>
 
         <div className="flex flex-col">
           <label htmlFor="email" className="text-Marine-blue font-bold">
             Email
           </label>
           <input
-            className="text-Marine-blue font-semibold mt-2 mb-4 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+            className={emailInputClasses}
             type="email"
             id="email"
             onChange={emailChangedHandler}
@@ -86,7 +92,7 @@ const Form = () => {
               Please provide a valid email address.
             </p>
           )}
-          </div>
+        </div>
 
         <div className="my-6">
           <input type="checkbox" className="mr-4" />
@@ -96,7 +102,12 @@ const Form = () => {
         {/* <Button disabled={!formIsValid} onClick={formSubmissionHandler}>SIGN IN</Button> */}
 
         <div>
-          <button disabled={!formIsValid} className="w-[100%] bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer">SIGN IN</button>
+          <button
+            disabled={!formIsValid}
+            className="w-[100%] bg-Purplish-blue text-center text-xl text-White py-2 rounded-[5px] hover:bg-Marine-blue cursor-pointer"
+          >
+            SIGN IN
+          </button>
         </div>
 
         <a href="#" className="flex text-center mx-auto my-2">

@@ -8,11 +8,3 @@ body{
   background: hsl(212, 57%, 55%);
   font-family: 'Ubuntu', sans-serif;
 }
-
-.invalid input{
-  @apply bg-Strawberry-red text-White focus:bg-Purplish-blue
-}
-
-.error-text{
-  @apply text-Strawberry-red
-}
