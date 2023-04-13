@@ -23,13 +23,15 @@ module.exports = {
     },
     extend: {
       fontFamily:{
-        ubuntu:'Ubuntu'
+        "Ubuntu": ['"Ubuntu"'],
+        "body": ['"Ubuntu"']
       },
       backgroundImage:{
         "step-bg": "url(../src/assets/bg-sidebar-desktop.svg)",
       }
     },
     colors:{
+      "background": "hsl(212, 57%, 55%)",
       "Marine-blue": "hsl(213, 96%, 18%)",
       "Purplish-blue": "hsl(243, 100%, 62%)",
       "Pastel-blue": "hsl(228, 100%, 84%)",
@@ -42,6 +44,7 @@ module.exports = {
       "White": "hsl(0, 0%, 100%)",
       "black": "hsl(360, 100, 0)",
       "gray": "hsl(0, 0%, 50%)",
+      "error-red": "#ffc9bb",
     }
   },
   plugins: [],

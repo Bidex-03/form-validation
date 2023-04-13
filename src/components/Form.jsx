@@ -1,8 +1,12 @@
 import React from "react";
 
 import useInput from "../hooks/use-input";
-import Button from "../UI/button";
 import Card from "../UI/Card";
+
+const emailRegex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+
+const isNotEmpty = (value) => value.trim() !== "" && value.length >= 3;
+const isEmail = value => emailRegex.test(value);
 
 const Form = () => {
   const {
@@ -12,7 +16,7 @@ const Form = () => {
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetNameInput,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput(isNotEmpty);
 
   const {
     value: enteredEmail,
@@ -21,7 +25,7 @@ const Form = () => {
     valueChangeHandler: emailChangedHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmailInput,
-  } = useInput((value) => value.includes("@"));
+  } = useInput(isEmail);
 
   let formIsValid = false;
 
@@ -44,11 +48,11 @@ const Form = () => {
   };
 
   const nameInputClasses = nameInputHasError
-    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-error-red focus:outline-none"
     : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
 
     const emailInputClasses = emailInputHasError
-    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none"
+    ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-error-red focus:outline-none"
     : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
 
   return (
@@ -71,7 +75,7 @@ const Form = () => {
             value={enteredName}
           />
           {nameInputHasError && (
-            <p className="text-Strawberry-red">Name must not be empty</p>
+            <p className="text-Strawberry-red">Name must be at least 3 characters</p>
           )}
         </div>
 
@@ -98,8 +102,6 @@ const Form = () => {
           <input type="checkbox" className="mr-4" />
           <label className="text-gray">Keep me signed in</label>
         </div>
-
-        {/* <Button disabled={!formIsValid} onClick={formSubmissionHandler}>SIGN IN</Button> */}
 
         <div>
           <button

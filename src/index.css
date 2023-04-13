@@ -8,3 +8,7 @@ body{
   background: hsl(212, 57%, 55%);
   font-family: 'Ubuntu', sans-serif;
 }
+
+/* body{
+  @apply bg-background font-body
+} */
