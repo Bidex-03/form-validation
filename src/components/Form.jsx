@@ -5,7 +5,17 @@ import Card from "../UI/Card";
 
 const emailRegex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
 
-const isNotEmpty = (value) => value.trim() !== "" && value.length >= 3;
+const isNotEmpty = value => {
+  const nameRegex = /[a-zA-Z]/;
+  const name = value.trim();
+
+  if(name.length < 3 || !nameRegex.test(name)){
+    return false;
+  }
+
+  return true;
+}
+
 const isEmail = value => emailRegex.test(value);
 
 const Form = () => {
@@ -62,7 +72,7 @@ const Form = () => {
           SIGN IN TO YOUR ACCOUNT
         </h1>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-3">
           <label htmlFor="name" className="text-Marine-blue font-bold">
             Name
           </label>
@@ -75,7 +85,7 @@ const Form = () => {
             value={enteredName}
           />
           {nameInputHasError && (
-            <p className="text-Strawberry-red">Name must be at least 3 characters</p>
+            <p className="text-Strawberry-red leading-4">Please enter a valid name with at least 3 characters, including at least one alphabet.</p>
           )}
         </div>
 
