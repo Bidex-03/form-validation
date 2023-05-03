@@ -1,22 +1,23 @@
 import React from "react";
 
+import Modal from "./Modal";
 import useInput from "../hooks/use-input";
 import Card from "../UI/Card";
 
 const emailRegex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
 
-const isNotEmpty = value => {
+const isNotEmpty = (value) => {
   const nameRegex = /[a-zA-Z]/;
   const name = value.trim();
 
-  if(name.length < 3 || !nameRegex.test(name)){
+  if (name.length < 3 || !nameRegex.test(name)) {
     return false;
   }
 
   return true;
-}
+};
 
-const isEmail = value => emailRegex.test(value);
+const isEmail = (value) => emailRegex.test(value);
 
 const Form = () => {
   const {
@@ -50,9 +51,10 @@ const Form = () => {
       return;
     }
 
+    alert("Submitted successfully");
     console.log(enteredName);
     console.log(enteredEmail);
-
+    
     resetNameInput();
     resetEmailInput();
   };
@@ -61,7 +63,7 @@ const Form = () => {
     ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-error-red focus:outline-none"
     : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
 
-    const emailInputClasses = emailInputHasError
+  const emailInputClasses = emailInputHasError
     ? "border-2 border-Strawberry-red text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-error-red focus:outline-none"
     : "text-Marine-blue font-semibold mt-2 mb-1 px-4 py-2 rounded-[5px] bg-Light-gray focus:outline-none";
 
@@ -85,7 +87,10 @@ const Form = () => {
             value={enteredName}
           />
           {nameInputHasError && (
-            <p className="text-Strawberry-red leading-4">Please enter a valid name with at least 3 characters, including at least one alphabet.</p>
+            <p className="text-Strawberry-red leading-4">
+              Please enter a valid name with at least 3 characters, including at
+              least one alphabet.
+            </p>
           )}
         </div>
 
